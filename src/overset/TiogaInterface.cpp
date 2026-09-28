@@ -290,7 +290,7 @@ void TiogaInterface::update_solution()
                         [=] AMREX_GPU_DEVICE(int nbx, int i, int j, int k) {
                             if (ibarrs[nbx](i, j, k) == -1) {
                                 for (int comp = 0; comp < ncomp; ++comp) {
-                                    fldn_arr[nbx](i, j, k) =
+                                    fldn_arr[nbx](i, j, k, comp) =
                                         2 * fldn_arr[nbx](i, j, k, comp) -
                                         fldnm1_arr[nbx](i, j, k, comp);
                                 }
